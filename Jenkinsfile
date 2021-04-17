@@ -4,7 +4,7 @@ pipeline {
   stage('Stage 1') {
       steps {
         script {
-         sh "mvn -B deploy"
+         sh "mvn -B install"
         }
       }
     }
