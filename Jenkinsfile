@@ -1,17 +1,24 @@
 pipeline {
   agent any
+  tools {
+        maven 'Maven 3.3.9'
+        jdk 'jdk8'
+    }
   stages {
-  stage('Stage 1') {
+  stage('Build') {
       steps {
         script {
          sh "mvn -B install"
         }
       }
     }
-  stage('Stage 2') {
+  stage('Initialize') {
       steps {
         script {
-          echo 'Stage 2'
+         sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                '''
         }
       }
     }
